@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{ "label": "kill CSpect", "type": "shell", "command": "pkill -f 'CSpect.exe' || true", "problemMatcher": [] },
+		{
+			"label": "build+run CSpect (Next)",
+			"type": "shell",
+			"command": "make run-zxn",
+			"isBackground": true,
+			"problemMatcher": [
+				{
+					"base": "$eslint-stylish",
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "CSpect Start|Dezog Plugin: .*started",
+						"endsPattern": "Dezog Plugin: Waiting for a connection on port 11000.*"
+					}
+				}
+			],
+			"presentation": { "reveal": "silent" }
+		},
+		{
+			"label": "make zx128",
+			"type": "shell",
+			"command": "make zx128",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "run ZEsarUX (128K)",
+			"type": "shell",
+			"command": "make run-zx128",
+			"isBackground": true,
+			"problemMatcher": [
+				{
+					"base": "$eslint-stylish",
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "ZEsarUX .*",
+						"endsPattern": "SmartLoad|Press any key to|Ready|^$"
+					}
+				}
+			],
+			"presentation": { "reveal": "silent" }
+		}
+	]
+}

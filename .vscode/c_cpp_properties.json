@@ -1,0 +1,29 @@
+{
+    "version": 4,
+    "configurations": [
+        {
+            "name": "Mac",
+            "compilerPath": "/usr/bin/clang",
+            "intelliSenseMode": "macos-clang-x64",
+            "cStandard": "c17",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/z88dk/include",
+                "${workspaceFolder}/z88dk/include/_DEVELOPMENT",
+                "${workspaceFolder}/z88dk/include/arch"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "${workspaceFolder}/z88dk/include",
+                    "${workspaceFolder}/z88dk/include/_DEVELOPMENT"
+                ]
+            },
+            "defines": [
+                "__ZXNEXT",
+                "__SPECTRUM",
+                "__Z80"
+            ]
+        }
+    ]
+}

@@ -16,8 +16,8 @@ ZCC        ?= zcc
 MONO       ?= mono
 
 # Default CSpect location (can be overridden on make cmdline)
-CSPECT_EXE ?= /Users/stu/src/NextBuild/Emu/CSpect/CSpect.exe
-ZESARUX    ?= /Applications/ZEsarUX.app/Contents/MacOS/zesarux
+CSPECT_EXE ?= CSpect.exe
+ZESARUX    ?= zesarux
 
 # ---- Common flags, optimized for debugging ----
 CFLAGS_COMMON := -vn -O0 -clib=sdcc_iy -Cs"--max-allocs-per-node 200000"

@@ -1,0 +1,73 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "dezog",
+			"request": "launch",
+			"name": "DeZog: 128K (ZEsarUX)",
+			"remoteType": "cspect",
+			"rootFolder": "${workspaceFolder}",
+			"load": "build/absolute_chaos.sna",
+			"topOfStack": "__register_sp",
+			"cspect": { "hostname": "localhost", "port": 11000 },
+			"preLaunchTask": "make run zx128",
+			"z88dkv2": [
+				{
+					"path": "${workspaceFolder}/build/**/*.lis",
+					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
+					"srcDirs": ["${workspaceFolder}/src", "${workspaceFolder}"]
+				}
+			]
+		},
+		{
+			"type": "dezog",
+			"request": "launch",
+			"name": "DeZog: 128K (ZSIM)",
+			"remoteType": "zsim",
+			"rootFolder": "${workspaceFolder}",
+			"load": "${workspaceFolder}/build/absolute_chaos.sna",
+			"topOfStack": "__register_sp",
+			"zsim": { "preset": "spectrum", "memoryModel": "ZX128K", "visualMemory": true },
+			"preLaunchTask": "make zx128",
+			"z88dkv2": [
+				{
+					"path": "${workspaceFolder}/build/**/*.lis",
+					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
+					"srcDirs": ["${workspaceFolder}/src", "${workspaceFolder}"]
+				}
+			]
+		},
+
+		{
+			"type": "dezog",
+			"request": "launch",
+			"name": "DeZog: Spectrum Next (CSpect)",
+			"remoteType": "cspect",
+			"rootFolder": "${workspaceFolder}",
+			"load": "${workspaceFolder}/build/absolute_chaos.nex",
+			"topOfStack": "__register_sp",
+			"cspect": { "hostname": "localhost", "port": 11000 },
+
+			"z88dkv2": [
+				{
+					"path": "${workspaceFolder}/build/**/*.lis",
+					"srcDirs": ["${workspaceFolder}/src", "${workspaceFolder}"],
+					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
+					"excludeFiles": []
+				}
+			],
+
+			"startAutomatically": false,
+			"history": {
+				"reverseDebugInstructionCount": 10000,
+				"codeCoverageEnabled": false
+			},
+			"commandsAfterLaunch": [],
+			"disassemblerArgs": { "numberOfLines": 20 },
+			"smartDisassemblerArgs": { "lowerCase": false },
+			"smallValuesMaximum": 513,
+			"tmpDir": ".tmp",
+			"preLaunchTask": "build+run CSpect (Next)"
+		}
+	]
+}

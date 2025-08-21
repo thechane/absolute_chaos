@@ -1,0 +1,9 @@
+.vscode/settings.json
+*.log
+src/*.o
+src/*.lis
+src/*.sym
+build/
+CSpect.exe
+z88dk
+zesarux
