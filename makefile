@@ -6,7 +6,7 @@
 # ---- Names & layout ----
 NAME       := absolute_chaos
 SRC_DIR    := src
-BUILD_DIR  := /Users/stu/src/absolute_chaos/build
+BUILD_DIR  := ./build
 SRCS       := $(wildcard $(SRC_DIR)/*.c)
 HEADERS    := $(wildcard $(SRC_DIR)/*.h)
 OUTBASE    := $(BUILD_DIR)/$(NAME)
