@@ -8,13 +8,8 @@
             "includePath": [
                 "${z88dk}/include/_DEVELOPMENT/clang"
             ],
-            "forcedInclude": [
-                "${z88dk}/include/sys/compiler.h",
-                "${z88dk}/libsrc/_DEVELOPMENT/target/zxn/config_zxn.h"
-            ],
-            "cStandard": "c11",
+            "cStandard": "c99",
             "defines": [
-                // List of defines equal to the ones produced by zcc -v -c but for __INTELLISENSE__ and __SDCC
                 "__INTELLISENSE__",
                 "__ZXNEXT",
                 "__Z80",

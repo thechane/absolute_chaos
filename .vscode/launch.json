@@ -4,27 +4,6 @@
 		{
 			"type": "dezog",
 			"request": "launch",
-			"name": "DeZog: 128K (ZEsarUX)",
-			"remoteType": "cspect",
-			"rootFolder": "${workspaceFolder}",
-			"load": "build/absolute_chaos.sna",
-			"topOfStack": "__register_sp",
-			"cspect": {
-				"hostname": "localhost",
-				"port": 11000
-			},
-			"preLaunchTask": "make run zx128",
-			"z88dkv2": [
-				{
-					"path": "src/*.lis",
-					"mapFile": "build/absolute_chaos.map",
-					"srcDirs": ["src"]
-				}
-			]
-		},
-		{
-			"type": "dezog",
-			"request": "launch",
 			"name": "DeZog: Spectrum Next (CSpect)",
 			"remoteType": "cspect",
 			"rootFolder": "${workspaceFolder}",
@@ -37,7 +16,8 @@
 			"preLaunchTask": "build+run CSpect (Next)",
 			"z88dkv2": [
 				{
-					"path": "src/*.lis",
+					"path": "src/**/*.lis",
+					"args": "--listcwd=crs",
 					"mapFile": "build/absolute_chaos.map",
 					"srcDirs": ["src"],
 					"excludeFiles": []
@@ -60,7 +40,8 @@
 			"preLaunchTask": "make zx128",
 			"z88dkv2": [
 				{
-					"path": "src/*.lis",
+					"path": "src/**/*.lis",
+					"args": "--listcwd=crs",
 					"mapFile": "build/absolute_chaos.map",
 					"srcDirs": ["src"],
 					"excludeFiles": []
