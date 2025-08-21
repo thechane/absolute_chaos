@@ -16,12 +16,12 @@ ZCC        ?= zcc
 MONO       ?= mono
 
 # Default CSpect location (can be overridden on make cmdline)
-CSPECT_EXE ?= CSpect.exe
+CSPECT_EXE ?= cspect/CSpect.exe
 ZESARUX    ?= zesarux
 
 # ---- Common flags, optimized for debugging ----
-CFLAGS_COMMON := -vn -O0 -clib=sdcc_iy -Cs"--max-allocs-per-node 200000"
-DEBUG_FLAGS   := -m --list --c-code-in-asm
+CFLAGS_COMMON := -vn -clib=sdcc_iy -compiler=sdcc -clib=sdcc_iy -startup=0
+DEBUG_FLAGS   := -m --list --c-code-in-asm -Cz"--clean"
 
 # ---- ZX Next (.nex) ----
 TARGET_ZXN    := +zxn

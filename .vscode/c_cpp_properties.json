@@ -1,29 +1,32 @@
 {
-    "version": 4,
+    "env": {
+        "z88dk": "${env:Z88DK}"
+    },
     "configurations": [
         {
-            "name": "Mac",
-            "compilerPath": "/usr/bin/clang",
-            "intelliSenseMode": "${default}",
-            "cStandard": "c17",
+            "name": "z88dk",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/z88dk/include",
-                "${workspaceFolder}/z88dk/include/_DEVELOPMENT",
-                "${workspaceFolder}/z88dk/include/arch"
+                "${z88dk}/include/_DEVELOPMENT/clang"
             ],
-            "browse": {
-                "path": [
-                    "${workspaceFolder}",
-                    "${workspaceFolder}/z88dk/include",
-                    "${workspaceFolder}/z88dk/include/_DEVELOPMENT"
-                ]
-            },
+            "forcedInclude": [
+                "${z88dk}/include/sys/compiler.h",
+                "${z88dk}/libsrc/_DEVELOPMENT/target/zxn/config_zxn.h"
+            ],
+            "cStandard": "c11",
             "defines": [
+                // List of defines equal to the ones produced by zcc -v -c but for __INTELLISENSE__ and __SDCC
+                "__INTELLISENSE__",
                 "__ZXNEXT",
-                "__SPECTRUM",
-                "__Z80"
-            ]
+                "__Z80",
+                "__Z80__",
+                "__Z80N",
+                "__SDCC_IY",
+                "__Z88DK_NEWLIB",
+                "__Z88DK",
+                "__SDCC"   
+            ],
+            "mergeConfigurations": true
         }
-    ]
+    ],
+    "version": 4
 }

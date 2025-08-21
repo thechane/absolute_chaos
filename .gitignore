@@ -5,6 +5,6 @@ src/*.o
 src/*.lis
 src/*.sym
 build/
-CSpect.exe
+cspect
 z88dk
 zesarux

@@ -9,13 +9,38 @@
 			"rootFolder": "${workspaceFolder}",
 			"load": "build/absolute_chaos.sna",
 			"topOfStack": "__register_sp",
-			"cspect": { "hostname": "localhost", "port": 11000 },
+			"cspect": {
+				"hostname": "localhost",
+				"port": 11000
+			},
 			"preLaunchTask": "make run zx128",
 			"z88dkv2": [
 				{
-					"path": "${workspaceFolder}/build/**/*.lis",
-					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
-					"srcDirs": ["${workspaceFolder}/src", "${workspaceFolder}"]
+					"path": "src/*.lis",
+					"mapFile": "build/absolute_chaos.map",
+					"srcDirs": ["src"]
+				}
+			]
+		},
+		{
+			"type": "dezog",
+			"request": "launch",
+			"name": "DeZog: Spectrum Next (CSpect)",
+			"remoteType": "cspect",
+			"rootFolder": "${workspaceFolder}",
+			"load": "${workspaceFolder}/build/absolute_chaos.nex",
+			"topOfStack": "0xFF58", // Next; use 0x5D58 for 128K targets
+			"cspect": {
+				"hostname": "localhost",
+				"port": 11000
+			},
+			"preLaunchTask": "build+run CSpect (Next)",
+			"z88dkv2": [
+				{
+					"path": "src/*.lis",
+					"mapFile": "build/absolute_chaos.map",
+					"srcDirs": ["src"],
+					"excludeFiles": []
 				}
 			]
 		},
@@ -27,47 +52,20 @@
 			"rootFolder": "${workspaceFolder}",
 			"load": "${workspaceFolder}/build/absolute_chaos.sna",
 			"topOfStack": "__register_sp",
-			"zsim": { "preset": "spectrum", "memoryModel": "ZX128K", "visualMemory": true },
+			"zsim": {
+				"preset": "spectrum",
+				"memoryModel": "ZX128K",
+				"visualMemory": true
+			},
 			"preLaunchTask": "make zx128",
 			"z88dkv2": [
 				{
-					"path": "${workspaceFolder}/build/**/*.lis",
-					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
-					"srcDirs": ["${workspaceFolder}/src", "${workspaceFolder}"]
-				}
-			]
-		},
-
-		{
-			"type": "dezog",
-			"request": "launch",
-			"name": "DeZog: Spectrum Next (CSpect)",
-			"remoteType": "cspect",
-			"rootFolder": "${workspaceFolder}",
-			"load": "${workspaceFolder}/build/absolute_chaos.nex",
-			"topOfStack": "__register_sp",
-			"cspect": { "hostname": "localhost", "port": 11000 },
-
-			"z88dkv2": [
-				{
-					"path": "${workspaceFolder}/build/**/*.lis",
-					"srcDirs": ["${workspaceFolder}/src", "${workspaceFolder}"],
-					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
+					"path": "src/*.lis",
+					"mapFile": "build/absolute_chaos.map",
+					"srcDirs": ["src"],
 					"excludeFiles": []
 				}
-			],
-
-			"startAutomatically": false,
-			"history": {
-				"reverseDebugInstructionCount": 10000,
-				"codeCoverageEnabled": false
-			},
-			"commandsAfterLaunch": [],
-			"disassemblerArgs": { "numberOfLines": 20 },
-			"smartDisassemblerArgs": { "lowerCase": false },
-			"smallValuesMaximum": 513,
-			"tmpDir": ".tmp",
-			"preLaunchTask": "build+run CSpect (Next)"
+			]
 		}
 	]
 }
