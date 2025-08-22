@@ -4,10 +4,9 @@
 #include "engine/text.h"
 #include "audio/sfx.h"
 
-/* 0 = key_bloop, 1..7 other sfx */
 void menu_enter(void) {
     BorderTheme theme = { ZX_YELLOW, ZX_MAGENTA, ZX_BLACK, 1 };
-    border_draw(theme, 0);
+    border_draw(theme, PAT_VSTRIPE_MED, PAT_VSTRIPE_THIN, 0);   // FIXED
     text_set_colors(ZX_WHITE, ZX_BLACK, 1);
     text_at(4, 5, "1 EXAMINE SPELL");
     text_at(4, 6, "2 SELECT  SPELL");

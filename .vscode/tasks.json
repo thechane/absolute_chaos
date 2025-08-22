@@ -5,7 +5,7 @@
 		{
 			"label": "build+run CSpect (Next)",
 			"type": "shell",
-			"command": "make run-zxn",
+			"command": "make clean && make run-zxn",
 			"isBackground": true,
 			"problemMatcher": [
 				{
@@ -29,7 +29,7 @@
 		{
 			"label": "run ZEsarUX (128K)",
 			"type": "shell",
-			"command": "make run-zx128",
+			"command": "make clean && make run-zx128",
 			"isBackground": true,
 			"problemMatcher": [
 				{

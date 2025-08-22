@@ -16,10 +16,16 @@
 			"preLaunchTask": "build+run CSpect (Next)",
 			"z88dkv2": [
 				{
-					"path": "src/*.lis",
-					"args": "--listcwd=crs",
-					"mapFile": "build/absolute_chaos.map",
-					"srcDirs": ["src"],
+					"path": "*.lis",
+					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
+					"srcDirs": [
+						"${workspaceFolder}/src",
+						"${workspaceFolder}/src/game",
+						"${workspaceFolder}/src/assets",
+						"${workspaceFolder}/src/audio",
+						"${workspaceFolder}/src/engine",
+						"${workspaceFolder}/src/screens",
+					],
 					"excludeFiles": []
 				}
 			]
@@ -40,10 +46,16 @@
 			"preLaunchTask": "make zx128",
 			"z88dkv2": [
 				{
-					"path": "src/*.lis",
-					"args": "--listcwd=crs",
-					"mapFile": "build/absolute_chaos.map",
-					"srcDirs": ["src"],
+					"path": "src/**/*.lis",
+					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
+					"srcDirs": [
+						"${workspaceFolder}/src",
+						"${workspaceFolder}/src/game",
+						"${workspaceFolder}/src/assets",
+						"${workspaceFolder}/src/audio",
+						"${workspaceFolder}/src/engine",
+						"${workspaceFolder}/src/screens",
+					],
 					"excludeFiles": []
 				}
 			]
