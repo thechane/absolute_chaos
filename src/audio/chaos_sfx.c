@@ -1,6 +1,6 @@
 #include "chaos_sfx.h"
 
-/* Chaos beeper blocks (10 bytes each). Names are yours to choose. */
+/* Chaos beeper blocks (10 bytes each) */
 static const uint8_t SFX_KEY_BLOOP[10] = { 0x04,0x0C,0x04,0x03,0x02,0x01,0x01,0x07,0x50,0x22 };
 static const uint8_t SFX_01[10]        = { 0x04,0x03,0x0A,0x0A,0x28,0x46,0x02,0x02,0x46,0x28 };
 static const uint8_t SFX_02[10]        = { 0x06,0x0C,0x00,0x14,0x28,0x3C,0x02,0x06,0x0C,0x28 };
@@ -10,15 +10,16 @@ static const uint8_t SFX_05[10]        = { 0x0A,0x05,0x01,0x05,0x1E,0x08,0x03,0x
 static const uint8_t SFX_06[10]        = { 0x14,0x03,0x28,0x28,0x46,0x64,0x02,0x03,0x3C,0x64 };
 static const uint8_t SFX_07[10]        = { 0x14,0x03,0x01,0x02,0x03,0x04,0x01,0x01,0x01,0x01 };
 
+/* Registry: index → name (for comments/reference) */
 static const ChaosSfxRef SFX_REG[] = {
-    {"key_bloop", SFX_KEY_BLOOP},
-    {"sfx_01",    SFX_01},
-    {"sfx_02",    SFX_02},
-    {"sfx_03",    SFX_03},
-    {"sfx_04",    SFX_04},
-    {"sfx_05",    SFX_05},
-    {"sfx_06",    SFX_06},
-    {"sfx_07",    SFX_07},
+    /* 0 */ {"key_bloop", SFX_KEY_BLOOP},
+    /* 1 */ {"sfx_01",    SFX_01},
+    /* 2 */ {"sfx_02",    SFX_02},
+    /* 3 */ {"sfx_03",    SFX_03},
+    /* 4 */ {"sfx_04",    SFX_04},
+    /* 5 */ {"sfx_05",    SFX_05},
+    /* 6 */ {"sfx_06",    SFX_06},
+    /* 7 */ {"sfx_07",    SFX_07},
 };
 
 uint16_t chaos_sfx_count(void) { return (uint16_t)(sizeof(SFX_REG)/sizeof(SFX_REG[0])); }

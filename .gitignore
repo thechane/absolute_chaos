@@ -5,6 +5,8 @@ src/*.o
 src/*.lis
 src/*.sym
 build/
+old/
 cspect
 z88dk
 zesarux
+*.lis

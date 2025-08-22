@@ -16,7 +16,7 @@
 			"preLaunchTask": "build+run CSpect (Next)",
 			"z88dkv2": [
 				{
-					"path": "src/**/*.lis",
+					"path": "src/*.lis",
 					"args": "--listcwd=crs",
 					"mapFile": "build/absolute_chaos.map",
 					"srcDirs": ["src"],
@@ -40,7 +40,7 @@
 			"preLaunchTask": "make zx128",
 			"z88dkv2": [
 				{
-					"path": "src/**/*.lis",
+					"path": "src/*.lis",
 					"args": "--listcwd=crs",
 					"mapFile": "build/absolute_chaos.map",
 					"srcDirs": ["src"],

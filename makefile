@@ -7,7 +7,7 @@
 NAME       := absolute_chaos
 SRC_DIR    := src
 BUILD_DIR  := ./build
-SRCS       := $(wildcard $(SRC_DIR)/*.c)
+SRCS := $(shell find $(SRC_DIR) -name '*.c')
 HEADERS    := $(wildcard $(SRC_DIR)/*.h)
 OUTBASE    := $(BUILD_DIR)/$(NAME)
 
@@ -20,7 +20,7 @@ CSPECT_EXE ?= cspect/CSpect.exe
 ZESARUX    ?= zesarux
 
 # ---- Common flags, optimized for debugging ----
-CFLAGS_COMMON := -vn -clib=sdcc_iy -compiler=sdcc -clib=sdcc_iy -startup=0
+CFLAGS_COMMON := -vn -clib=sdcc_iy -compiler=sdcc -clib=sdcc_iy -startup=0 -I$(SRC_DIR)
 DEBUG_FLAGS   := -m --list --c-code-in-asm -Cz"--clean"
 
 # ---- ZX Next (.nex) ----
@@ -68,3 +68,4 @@ $(BUILD_DIR):
 
 clean:
 	rm -rf "$(BUILD_DIR)"
+	find $(SRC_DIR) -name '*.lis' -type f -delete

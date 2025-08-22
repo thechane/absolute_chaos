@@ -6,9 +6,12 @@
         {
             "name": "z88dk",
             "includePath": [
-                "${z88dk}/include/_DEVELOPMENT/clang"
+                "${workspaceFolder}/src",
+                "${z88dk}/include/_DEVELOPMENT/clang",
+                "${workspaceFolder}/src/engine",
+                "${workspaceFolder}/src/audio"
             ],
-            "cStandard": "c99",
+            "cStandard": "c89",
             "defines": [
                 "__INTELLISENSE__",
                 "__ZXNEXT",
@@ -20,7 +23,14 @@
                 "__Z88DK",
                 "__SDCC"   
             ],
-            "mergeConfigurations": true
+            "mergeConfigurations": true,
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/src",
+                    "${z88dk}/include"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
         }
     ],
     "version": 4
