@@ -2,30 +2,13 @@
 #include "engine/text.h"
 #include "engine/border.h"
 #include "engine/grid.h"
+#include "engine/utils.h"
 #include "audio/sfx.h"
 #include "assets/assets.h"
 
 extern const uint8_t FONT8X8_ZXLIKE[96*8];
 extern const uint8_t *TEXT_FONT8;
 
-/* 
-SleepyTime 	
-•	Pass 1 → ~20ms delay
-•	Pass 25 → ~½ second
-•	Pass 50 → ~1 second
-*/
-static void wait_frames(unsigned char frames)
-{
-#ifdef __Z88DK__
-    while (frames--) {
-        __asm
-            halt        ; CPU sleeps until interrupt
-        __endasm;
-    }
-#else
-    (void)frames; /* no-op for non-z88dk */
-#endif
-}
 
 static void demo_run(void)
 {
