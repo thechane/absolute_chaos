@@ -1,7 +1,7 @@
 #include "border.h"
 #include "platform_zx.h"
 #include "config.h"
-#include "audio/sfx.h"
+#include "engine/audio.h"
 
 /* ----- Exposed 8x8 patterns (see header) ----- */
 const uint8_t PAT_VSTRIPE_THIN[8]  = { 0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA };
@@ -161,34 +161,34 @@ void border_draw(BorderTheme theme,
         zx_cls_attr(MAKE_ATTR_FROM(bg));
     }
 
-/* ---- Outer ring (secondary) ---- */
-{
-    uint8_t y, tiles_w = (uint8_t)(ZX_SCREEN_W / 8u);
+    /* ---- Outer ring (secondary) ---- */
+    {
+        uint8_t y, tiles_w = (uint8_t)(ZX_SCREEN_W / 8u);
 
-    for (y = 0u; y < 8u; ++y) {
-        blit_h_span(0u, y, pat_outer, tiles_w);                       /* top */
-        blit_h_span(0u, (uint8_t)(ZX_SCREEN_H - 8u + y), pat_outer, tiles_w);
+        for (y = 0u; y < 8u; ++y) {
+            blit_h_span(0u, y, pat_outer, tiles_w);                       /* top */
+            blit_h_span(0u, (uint8_t)(ZX_SCREEN_H - 8u + y), pat_outer, tiles_w);
+        }
+        for (y = 8u; y < (uint8_t)(ZX_SCREEN_H - 8u); y += 8u) {
+            zx_blit8_aligned(0u, y, pat_outer);                           /* left  */
+            zx_blit8_aligned((uint8_t)(ZX_SCREEN_W - 8u), y, pat_outer);  /* right */
+        }
     }
-    for (y = 8u; y < (uint8_t)(ZX_SCREEN_H - 8u); y += 8u) {
-        zx_blit8_aligned(0u, y, pat_outer);                           /* left  */
-        zx_blit8_aligned((uint8_t)(ZX_SCREEN_W - 8u), y, pat_outer);  /* right */
-    }
-}
 
-/* ---- Inner ring (primary) ---- */
-{
-    uint8_t y, tiles_w = (uint8_t)(ZX_SCREEN_W / 8u);
+    /* ---- Inner ring (primary) ---- */
+    {
+        uint8_t y, tiles_w = (uint8_t)(ZX_SCREEN_W / 8u);
 
-    for (y = 0u; y < 8u; ++y) {
-        blit_h_span(8u, (uint8_t)(8u + y), pat_inner, (uint8_t)(tiles_w - 2u));
-        blit_h_span(8u, (uint8_t)(ZX_SCREEN_H - 16u + y),
-                    pat_inner, (uint8_t)(tiles_w - 2u));
+        for (y = 0u; y < 8u; ++y) {
+            blit_h_span(8u, (uint8_t)(8u + y), pat_inner, (uint8_t)(tiles_w - 2u));
+            blit_h_span(8u, (uint8_t)(ZX_SCREEN_H - 16u + y),
+                        pat_inner, (uint8_t)(tiles_w - 2u));
+        }
+        for (y = 16u; y < (uint8_t)(ZX_SCREEN_H - 16u); y += 8u) {
+            zx_blit8_aligned(8u, y, pat_inner);                           /* left  */
+            zx_blit8_aligned((uint8_t)(ZX_SCREEN_W - 16u), y, pat_inner); /* right */
+        }
     }
-    for (y = 16u; y < (uint8_t)(ZX_SCREEN_H - 16u); y += 8u) {
-        zx_blit8_aligned(8u, y, pat_inner);                           /* left  */
-        zx_blit8_aligned((uint8_t)(ZX_SCREEN_W - 16u), y, pat_inner); /* right */
-    }
-}
 
     /* colour attributes + hw border */
     border_recolor(theme);
@@ -196,6 +196,6 @@ void border_draw(BorderTheme theme,
 
     /* optional SFX */
     if (sfx_index >= 0) {
-        sfx_play_idx((uint16_t)sfx_index);
+        chaos_play_sfx_idx((uint16_t)sfx_index);
     }
 }

@@ -1,17 +1,17 @@
 #include "screen_opening.h"
-#include "../engine/border.h"
-#include "../engine/text.h"
-#include "../engine/grid.h"
-#include "../engine/screen.h"
-#include "../audio/sfx.h"
-#include "../engine/config.h"
-#include "../audio/sfx_ids.h"
+#include "engine/audio.h"
+#include "engine/border.h"
+#include "engine/text.h"
+#include "engine/grid.h"
+#include "engine/screen.h"
+#include "engine/config.h"
+#include "engine/audio.h"
 
 static Grid g;
 
 void opening_enter(void) {
   BorderTheme theme = { ZX_CYAN, ZX_BLUE, ZX_BLACK, 1 };
-  border_draw(theme, PAT_VSTRIPE_MED, PAT_VSTRIPE_THIN, SFX_KEY_BLOOP);   // FIXED
+  border_draw(theme, PAT_VSTRIPE_MED, PAT_VSTRIPE_THIN, 0);   // FIXED
   grid_from_border(&g, GRID_COLS_DEFAULT, GRID_ROWS_DEFAULT, BLOCK_W, BLOCK_H);
 
   text_set_colors(ZX_YELLOW, ZX_BLACK, 1);

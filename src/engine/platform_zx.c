@@ -1,5 +1,6 @@
 #include "platform_zx.h"
 #include "config.h"
+#include "engine/audio.h"
 #include <stdint.h>
 
 /* =========================================================================
@@ -105,16 +106,16 @@ void zx_fill_attr_rect(uint8_t col, uint8_t row, uint8_t w, uint8_t h, uint8_t a
    ------------------------------------------------------------------------- */
 void zx_out_border(uint8_t color)
 {
-#ifdef __Z88DK__
-    __asm
-        ld a, l        ; 'color' in L
-        and 0x07
-        ld bc, 0x00FE
-        out (c), a
-    __endasm;
-#else
-    (void)color;
-#endif
+    #ifdef __Z88DK__
+        __asm
+            ld a, l        ; 'color' in L
+            and 0x07
+            ld bc, 0x00FE
+            out (c), a
+        __endasm;
+    #else
+        (void)color;
+    #endif
 }
 
 /* -------------------------------------------------------------------------

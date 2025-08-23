@@ -2,7 +2,7 @@
 #include "engine/config.h"
 #include "engine/border.h"
 #include "engine/text.h"
-#include "audio/sfx.h"
+#include "engine/audio.h"
 
 void menu_enter(void) {
     BorderTheme theme = { ZX_YELLOW, ZX_MAGENTA, ZX_BLACK, 1 };

@@ -4,9 +4,9 @@
 #include "engine/text.h"
 #include "engine/grid.h"
 #include "engine/utils.h"
-#include "audio/sfx.h"
+#include "engine/audio.h"
 #include "assets/assets.h"
-#include "assets/font8x8.h" 
+#include "assets/font8x8.h"
 #include <stdint.h>
 
 /* font provided by your assets (ASCII 32..127, 96*8 bytes) */
@@ -51,6 +51,12 @@ int gameloop(void)
 
     text_set_colors(ZX_WHITE, ZX_BLACK, 1);
     text_at(6u, 3u, "ABSOLUTE CHAOS");
+    
+
+    chaos_play_sfx_idx(1);
+    wait_frames(20);
+    chaos_play_sfx_idx(2);
+    wait_frames(30);
 
     text_set_colors(ZX_GREEN, ZX_BLACK, 1);
     text_status("DEMO: BORDER + TEXT + GRID (VSTRIPES)");

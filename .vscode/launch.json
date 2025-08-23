@@ -16,7 +16,7 @@
 			"preLaunchTask": "build+run CSpect (Next)",
 			"z88dkv2": [
 				{
-					"path": "*.lis",
+					"path": "src/**/*.lis",
 					"mapFile": "${workspaceFolder}/build/absolute_chaos.map",
 					"srcDirs": [
 						"${workspaceFolder}/src",
